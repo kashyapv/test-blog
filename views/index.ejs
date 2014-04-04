@@ -1,0 +1,89 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title><%= title %></title>
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/theme.css" rel="stylesheet">
+	</head>
+	<body>
+		<% include header %>
+		<div class="container">
+			<div class="row">
+				<div class = "col-md-8">
+					<main role="main">
+					<% posts.forEach(function(post){ %>
+					<h3><a href="/post/<%= post.slug %>"><%= post.title %></a></h3>
+					<p><%= post.date %> by <a href="#"><%= post.author %></a></p>
+					<div><%= post.content %></div>
+					<p></p>
+					<div><p class="text-muted">tags: <%= post.tags%></p></div>
+					<% }); %>
+					</main>
+				</div>
+				<div class="col-md-4">
+					<div class ="well well">
+						<h3>About</h3>
+						<p>This is where we'd include a small snippet about the purpose of this blog.</p>
+					</div>
+					<div class = "well well">
+						<h3>Archives</h3>
+						<ol class="list-unstyled">
+							<li><a href="#">January 2014</a></li>
+							<li><a href="#">February 2014</a></li>
+						</ol>
+					</div>
+					<!-- <div class="panel-group" id="accordion">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+								<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+								Collapsible Group Item #1
+								</a>
+								</h4>
+							</div>
+							<div id="collapseOne" class="panel-collapse collapse in">
+								<div class="panel-body">
+									Stuff in here.
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+								<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+								Collapsible Group Item #2
+								</a>
+								</h4>
+							</div>
+							<div id="collapseTwo" class="panel-collapse collapse">
+								<div class="panel-body">
+									More stuff in here!
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+								<a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+								Collapsible Group Item #3
+								</a>
+								</h4>
+							</div>
+							<div id="collapseThree" class="panel-collapse collapse">
+								<div class="panel-body">
+									Even more stuff in here!
+								</div>
+							</div>
+						</div>
+						</div> -->  <!-- collapsible toggle switches - cool! -->
+					</div>
+				</div>
+			</div>
+			<% include footer %>
+			<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+			<script src="js/bootstrap.min.js"></script>
+			<script src="js/docs.min.js"></script>
+		</body>
+	</html>

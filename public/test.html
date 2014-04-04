@@ -1,0 +1,145 @@
+<html>
+
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title><%= title %></title>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/theme.css" rel="stylesheet">
+</head>
+
+<body>
+
+<header>
+
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Blog</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="/">Home</a></li>
+            <li><a href="/newpost">Create Post</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Testing</a></li>
+                <li><a href="#">This might be useful</a></li>
+                <li class="divider"></li>
+                <li class="dropdown-header">Dropdown header</li>
+                <li><a href="#">link</a></li>
+                <li><a href="#">more links</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+	<div class = "container">
+	    <div class="jumbotron">
+	        <h1><b>Welcome to the blog!</b></h1>
+	        <p>It doesn't work yet!</p>
+	        <p><a href="#" class="btn btn-primary btn-lg" role="button">Learn more &raquo;</a></p>
+	    </div>
+</div>
+</header>
+
+<div class="container">
+	<div class="row">
+		<div class = "col-md-8">
+			<h3>Create a New Post</h3>
+			<p></p>
+			<form name="newpost">
+			<input type="text" class="form-control" placeholder="Title" autofocus name="title">
+			<p></p>
+			<input type="text" class="form-control" placeholder="Author" name="author">
+			<p></p>
+			<textarea class="form-control" rows="6" placeholder="Body Text" name="body"></textarea>
+			<p></p>
+			<input type="text" class="form-control" placeholder="Tags" name="tags">
+			<span class="help-block">Separate tags with commas.</span>
+			<p></p>
+			<input type="button" class="btn btn-primary" onClick="test(this.form)" value="Submit &raquo;">
+			<!-- <a class="btn btn-default" role="button" onClick="submit(newpost)">Submit &raquo;</a> -->
+			</form>
+		</div>
+		<div class="col-md-4">
+			<div class ="well well">
+				<h3>About</h3>
+				<p>This is where we'd include a small snippet about the purpose of this blog.</p>
+			</div>
+			<div class = "well well">
+				<h3>Archives</h3>
+				<ol class="list-unstyled">
+	              <li><a href="#">January 2014</a></li>
+	              <li><a href="#">February 2014</a></li>
+	            </ol>
+			</div>
+		</div>
+	</div>
+</div>
+
+<footer>
+	<hr>
+  <div class="container">
+    <p><p>&copy; Company 2014</p></p>
+    <p>Posts are also available via json at <a href="/api/posts">/api/posts</a>/
+  </div>
+</footer>
+
+	<script language="javascript">
+		function submit(form) {
+			console.log("Hello");
+			alert("Hello");
+			var post_title = form.title.value;
+			var post_author = form.author.value;
+			var post_body = form.body.value;
+			var post_tags = form.tags.value.split(',');
+			var newPost = {
+				title: post_title,
+				author: post_author,
+				body: post_body,
+				tags: post_tags
+			};
+			console.log(newPost);
+
+			// feed to json file
+		}
+	</script>
+
+	<script language="javascript">
+		function test(form) {
+			var entry = form.title.value;
+			var name = form.author.value;
+			alert("Hello " + name + "! Your post will be called "+ entry);
+			console.log("Testing");
+
+			// var post_title = form.title.value;
+			// var post_author = form.author.value;
+			// var post_body = form.body.value;
+			// var post_tags = form.tags.value.split(',');
+			// var newPost = {
+			// 	title: post_title;
+			// 	author: post_author;
+			// 	body: post_body;
+			// 	tags: post_tags;
+			// };
+			// console.log(newPost);
+		}
+	</script>
+
+	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/docs.min.js"></script>
+</body>
+
+</html>

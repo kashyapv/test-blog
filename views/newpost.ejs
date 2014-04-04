@@ -1,0 +1,119 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title><%= title %></title>
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/theme.css" rel="stylesheet">
+	</head>
+	<body>
+		<% include header %>
+		<div class="container">
+			<div class="row">
+				<div class = "col-md-8">
+					<h3>Create a New Post</h3>
+					<p></p>
+					<!-- <form name="newpost" method="get"> -->
+					<input type="text" class="form-control" placeholder="Title" autofocus="" id="title"><p></p>
+					<input type="text" class="form-control" placeholder="Author" id="author"><p></p>
+					<textarea class="form-control" rows="6" placeholder="Body Text" id="body"></textarea><p></p>
+					<input type="text" class="form-control" placeholder="Tags" id="tags">
+					<span class="help-block">Separate tags with commas.</span><p></p>
+					<!-- <input type="button" class="btn btn-primary" onClick="submit()" value="Submit &raquo;"> -->
+					<input type="button" class="btn btn-primary" id="submit" value="Submit &raquo;">
+					<!-- </form> -->
+				</div>
+				<div class="col-md-4">
+					<div class ="well well">
+						<h3>About</h3>
+						<p>This is where we'd include a small snippet about the purpose of this blog.</p>
+					</div>
+					<div class = "well well">
+						<h3>Archives</h3>
+						<ol class="list-unstyled">
+							<li><a href="#">January 2014</a></li>
+							<li><a href="#">February 2014</a></li>
+						</ol>
+					</div>
+				</div>
+			</div>
+		</div>
+		<% include footer %>
+
+		<!-- none of these work yet -->
+		<!--
+		<script LANGUAGE="JavaScript">
+			function submit () {
+				var title = $('#DynamicValueAssignedHere').find('input[name="title"]').val();
+				alert(title)
+				console.log("Hello");
+				alert ("Hello");
+				var newPost = new Object(){
+					title: form.title.value,
+					author: form.author.value,
+					body: form.body.value,
+					tags: form.tags.value.split(',')
+				}
+				console.log(newPost.title);
+				alert("Thanks for posting!")
+			}
+		</script>
+
+		<script language="JavaScript">
+			$('#submit').click(function(){
+				var title = $('#title').val();
+				alert(title);
+			});
+		</script>
+
+		<script type="text/javascript">
+			$('#submit').click(function(){
+				var title = $('#title').val();
+				var author = $('#author').val();
+				var body = $('#body').val();
+				var tags = $('#tags').val().split(',');
+				alert('This is a test!');
+				// alert('Hello '+author+', your article is called \"'+title+'.\" Thanks for posting!');
+
+				var newPost = {
+					title: title,
+					author: author,
+					body: body,
+					tags: tags
+				};
+			});
+		</script>
+
+		<script type="text/javascript">
+			$('#submit').on("click", function(){
+ 				alert('Thanks for posting!');
+			});
+		</script>
+		-->
+
+		<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/docs.min.js"></script>
+
+		<!-- This one works... somewhat -->
+		<script>
+			$('#submit').click(function(){
+				var title = $('#title').val();
+				var author = $('#author').val();
+				var body = $('#body').val();
+				var tags = $('#tags').val().split(/\s*,\s*/);
+				alert('Hello '+author+', your article is called \"'+title+'.\" Thanks for posting!');
+
+				var newPost = {
+					title: title,
+					author: author,
+					body: body,
+					tags: tags
+				};
+
+				res.locals.posts.push(newPost);
+			});
+		</script>
+	</body>
+</html>

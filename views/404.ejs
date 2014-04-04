@@ -1,0 +1,57 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><%= title %></title>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/theme.css" rel="stylesheet">
+</head>
+
+<body>
+
+<% include header %>
+
+<div class="container">
+  <div class="row">
+    <div class = "col-md-8">
+      <main role="main">
+        <div class="container">
+            <article>
+    <h2>Page Not Found</h2>
+    <p>Sorry, but the page you were trying to view does not exist.</p>
+    <p>It looks like this was the result of either:</p>
+    <ul>
+      <li>a mistyped address</li>
+      <li>an out-of-date link</li>
+    </ul>    
+  </article>
+        </div>
+      </main>
+    </div>
+    <div class="col-md-4">
+      <div class ="well well-lg">
+        <h3>About</h3>
+        Text in a Well
+      </div>
+      <div class = "well well-lg">
+        <h3>Archives</h3>
+        <li><a href="#>">February 2014</a></li>
+        <li><a href="#">January 2014</a></li>
+        <li><a href="#">December 2013</a></li>
+        <li><a href="#">November 2013</a></li>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<% include footer %>
+
+  <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/docs.min.js"></script>
+</body>
+
+</html>
